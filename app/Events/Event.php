@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Events;
+namespace Flare\Events;
 
 abstract class Event
 {

@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace Flare\Http\Controllers\Auth;
 
-use App\User;
+use Flare\User;
 use Validator;
-use App\Http\Controllers\Controller;
+use Flare\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 

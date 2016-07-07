@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Jobs;
+namespace Flare\Jobs;
 
 use Illuminate\Bus\Queueable;
 

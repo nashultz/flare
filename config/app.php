@@ -153,10 +153,10 @@ return [
         /*
          * Application Service Providers...
          */
-        App\Providers\AppServiceProvider::class,
-        App\Providers\AuthServiceProvider::class,
-        App\Providers\EventServiceProvider::class,
-        App\Providers\RouteServiceProvider::class,
+        Flare\Providers\AppServiceProvider::class,
+        Flare\Providers\AuthServiceProvider::class,
+        Flare\Providers\EventServiceProvider::class,
+        Flare\Providers\RouteServiceProvider::class,
 
     ],
 
