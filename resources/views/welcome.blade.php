@@ -28,22 +28,22 @@
 </head>
 <body class="with-navbar" v-cloak>
 <div id="spark-app">
-    <!-- Navigation -->
+    <!-- Navigation
 @if (Auth::check())
     @include('spark::nav.user')
 @else
     @include('spark::nav.guest')
-@endif
+@endif-->
 
 <!-- Main Content -->
 @yield('content')
 
-<!-- Application Level Modals -->
+<!-- Application Level Modals
 @if (Auth::check())
     @include('spark::modals.notifications')
     @include('spark::modals.support')
     @include('spark::modals.session-expired')
-@endif
+@endif-->
 
 <!-- JavaScript -->
     <script src="/js/app.js"></script>
