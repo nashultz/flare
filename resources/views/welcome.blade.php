@@ -19,12 +19,12 @@
     <!-- Scripts -->
 @yield('scripts', '')
 
-<!-- Global Spark Object -->
+<!-- Global Spark Object
     <script>
-        window.Spark = <?php echo json_encode(array_merge(
-                Spark::scriptVariables(), []
-        )); ?>
-    </script>
+        window.Spark = <?php //echo json_encode(array_merge(
+                //Spark::scriptVariables(), []
+        //)); ?>
+    </script>-->
 </head>
 <body class="with-navbar" v-cloak>
 <div id="spark-app">
