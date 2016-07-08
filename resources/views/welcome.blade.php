@@ -6,89 +6,49 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Spark</title>
+    <title>@yield('title', 'Flare')</title>
 
     <!-- Fonts -->
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,600' rel='stylesheet' type='text/css'>
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
 
-    <style>
-        body, html {
-            background: url('/img/spark-bg.png');
-            background-repeat: repeat;
-            background-size: 300px 200px;
-            height: 100%;
-            margin: 0;
-        }
+    <!-- CSS -->
+    <link href="/css/sweetalert.css" rel="stylesheet">
+    <link href="/css/app.css" rel="stylesheet">
 
-        .full-height {
-            min-height: 100%;
-        }
+    <!-- Scripts -->
+@yield('scripts', '')
 
-        .flex-column {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .flex-fill {
-            flex: 1;
-        }
-
-        .flex-center {
-            align-items: center;
-            display: flex;
-            justify-content: center;
-        }
-
-
-        .text-center {
-            text-align: center;
-        }
-
-        .links {
-            padding: 1em;
-            text-align: right;
-        }
-
-        .links a {
-            text-decoration: none;
-        }
-
-        .links button {
-            background-color: #3097D1;
-            border: 0;
-            border-radius: 4px;
-            color: white;
-            cursor: pointer;
-            font-family: 'Open Sans';
-            font-size: 14px;
-            font-weight: 600;
-            padding: 15px;
-            text-transform: uppercase;
-            width: 100px;
-        }
-    </style>
+<!-- Global Spark Object -->
+    <script>
+        window.Spark = <?php echo json_encode(array_merge(
+                Spark::scriptVariables(), []
+        )); ?>
+    </script>
 </head>
-<body>
-<div class="full-height flex-column">
-    <nav class="links">
-        <a href="/login" style="margin-right: 15px;">
-            <button>
-                Login
-            </button>
-        </a>
+<body class="with-navbar" v-cloak>
+<div id="spark-app">
+    <!-- Navigation -->
+@if (Auth::check())
+    @include('spark::nav.user')
+@else
+    @include('spark::nav.guest')
+@endif
 
-        <a href="/register">
-            <button>
-                Register
-            </button>
-        </a>
-    </nav>
+<!-- Main Content -->
+@yield('content')
 
-    <div class="flex-fill flex-center">
-        <h1 class="text-center">
-            <img src="/img/color-logo.png">
-        </h1>
-    </div>
+<!-- Application Level Modals -->
+@if (Auth::check())
+    @include('spark::modals.notifications')
+    @include('spark::modals.support')
+    @include('spark::modals.session-expired')
+@endif
+
+<!-- JavaScript -->
+    <script src="/js/app.js"></script>
+    <script src="/js/sweetalert.min.js"></script>
 </div>
 </body>
 </html>
+
